@@ -1,0 +1,30 @@
+body
+{
+    padding: 0;
+    margin: 0;
+    background-color: #CCC;
+} 
+ 
+#wrapper
+{
+    width:1000px;
+    background-color: #FFF; 
+    margin:0px auto;
+    min-height: 400px; 
+    margin-top: 40px;
+    border:1px solid #999;
+    border-bottom: 3px #999;
+    border-radius: 5px;
+}
+
+#formDiv{
+    width: 240px;     
+    margin: 0px auto;
+    margin-top: 20px;
+       
+}
+
+#error{
+    color: red;
+    font-size: 12px;
+}
