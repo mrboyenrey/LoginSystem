@@ -1,6 +1,16 @@
 # Login System
-<<<<<<< HEAD
-=======
+This a simple complete Login System 
+
+# Function
+- IT has user login & registration
+- IT has password encryption
+- IT has secure profile access
+
+# Current Technology Use
+- PHP ( Hyper Text Preprocessor)
+- HTML (Hyper Text Markup Language)
+- Javascript
+- MYSQL
 
 
->>>>>>> 7a9c6e5b712be809bf1727d66618b23f48c0e859
+
