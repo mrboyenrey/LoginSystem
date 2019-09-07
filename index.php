@@ -1,3 +1,18 @@
+<?php
+
+ //Database Connecttion
+ include("DB_connect.php");
+ include("function.php"); 
+
+//if user is already log-in it should not go back to the homepage
+if(logged_in())
+{
+    header("location:profile.php");
+    exit();  
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

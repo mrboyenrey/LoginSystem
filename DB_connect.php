@@ -1,4 +1,5 @@
 <?php
+
      
     /* THIS code will connect to the database please provide valid arguement to mysqli_connect function() */
     /* ARGUEMENTS IN THE FUNCTIONS
@@ -28,7 +29,7 @@
         */
     }
 
-    /******* */
-
+    /**session start */
+    session_start();
     
 ?>

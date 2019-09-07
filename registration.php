@@ -7,7 +7,7 @@
 
     
     /*---isset when all input value is set to send to the server ----*/
-    if(isset($_POST['submit'])) 
+    if(isset($_POST['submit']))  
     {   
         /** DEPRECATED mysqli_real_escape_string() in PHP7 */
         /* mysqli_real_escape_string() to avoid sql injection attack to hack the DB */
@@ -16,8 +16,8 @@
         $firstname  = mysqli_real_escape_string($connect, strtolower($_POST['fname']));     //input value for First name
         $lastname   = mysqli_real_escape_string($connect, strtolower($_POST['lname']));     //input value for last name
         $email      = mysqli_real_escape_string($connect, strtolower($_POST['email']));     //input value for email
-        $password   = $_POST['password'];                                                   //input value for password         
-        $cpassword  = $_POST['cpassword'];                                                  //input value for cpassword    
+        $password   = mysqli_real_escape_string($connect, $_POST['password']);              //input value for password         
+        $cpassword  = mysqli_real_escape_string($connect, $_POST['cpassword']);              //input value for cpassword    
             
          /*---configuration for uploading images or files----*/
 
@@ -46,14 +46,14 @@
                         if(strlen($firstname) < 3)
                         { 
                             echo '<script language="javascript">';
-                            echo 'alert("Firstname is to short!")';
+                            echo 'alert("Firstname is to short!");';
                             echo '</script>';  
                         }
                         else if(strlen($lastname) < 3)
                         { 
                         
                             echo '<script language="javascript">';
-                            echo 'alert("Lastname is to short!")';
+                            echo 'alert("Lastname is to short!");';
                             echo '</script>';  
                         }
 
@@ -61,7 +61,7 @@
                         {
                     
                             echo '<script language="javascript">';
-                            echo 'alert("Please enter valid email")';
+                            echo 'alert("Please enter valid email");';
                             echo '</script>';  
                             
                             
@@ -71,34 +71,34 @@
                             
 
                             echo '<script language="javascript">';
-                            echo 'alert("Password must generate greater then 8 characters")';
+                            echo 'alert("Password must generate greater then 8 characters");';
                             echo '</script>';  
                         }
                         else if($password !== $cpassword)
                         {
                         
                             echo '<script language="javascript">';
-                            echo 'alert("Password not match")';
+                            echo 'alert("Password not match");';
                             echo '</script>';
                             
                         }
                         else if($image == "")
                         {
                             echo '<script language="javascript">';
-                            echo 'alert("Please upload image")';
+                            echo 'alert("Please upload image");';
                             echo '</script>';  
                         }
                         else if($tmp_size > 1048576)
                         {
                             echo '<script language="javascript">';
-                            echo 'alert("image is over 1mb")';   
+                            echo 'alert("image is over 1mb");';   
                             echo '</script>';
                         }
                        
                         else if(mysqli_num_rows($res_email) > 0)
                         {
                             echo '<script language="javascript">';
-                            echo 'alert("email is already used")';       
+                            echo 'alert("email is already used");';       
                             echo '</script>';
                         } 
                         else
@@ -126,16 +126,17 @@
                                                 
                                                 /*PROMPT FOR INSERT DB SUCCESS*/ 
                                                 echo '<script language="javascript">'; 
-                                                echo 'alert("YOU ARE SUCCESSFULLY REGISTER!")';
+                                                echo 'alert("YOU ARE SUCCESSFULLY REGISTER!");';
+                                               echo 'location.replace("http://localhost/Login-System/");';   
                                                 echo '</script>';           
-
+                                              
                                                        
                                                
                                             }  
                                             else
                                             {   
                                                 echo '<script language="javascript">';
-                                                echo 'alert("Image is not uploaded")';
+                                                echo 'alert("Image is not uploaded");';
                                                 echo '</script>';  
                                             }  
                         
@@ -169,7 +170,7 @@
         <div id="wrapper"> 
             <div>
                 <center> 
-                <h2> REGISTRATION FORMS </h2>
+                <h2> REGISTRATION FORMS </h2> 
                 </center> 
             </div>
            <div id="formDiv">
@@ -194,7 +195,9 @@
                     <label>Upload image: </label><br>
                     <input type="file" name="images"/><br><br>  
 
-                    <input type="submit" name="submit"/><br>
+                    <input type="submit" name="submit" value="Register"/>
+                    <a href="login.php"><input type="button" name="register" value="Login"/></a> 
+                    <a href="index.php"><input type="button" name="register" value="Home"/></a>   
 
                </form>
 
